@@ -40,4 +40,4 @@ This repo architecture has been thought to simplify the process of creating a pl
 - edit your plugin individual readme to give details on what it does
 - create a PR with your new plugin
 
-If the automatic build fails during artifact upload because you didn't have a latest release yet, go to <your fork>/releases/new and create a new release. The only important field is the tag name which must be ``latest`` and then go to <your fork>/actions/workflows to rerun the failed worfklow.
+If the automatic build fails during artifact upload because you didn't have a latest release yet, go to \<your fork\>/releases/new and create a new release. The only important field is the tag name which must be ``latest`` and then go to \<your fork\>/actions/workflows to rerun the failed worfklow.
