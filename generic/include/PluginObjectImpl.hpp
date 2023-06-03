@@ -15,7 +15,7 @@ public:
     void Read(const unsigned char* ptr, unsigned long long int& length) final
     {
         std::vector<unsigned char> data(ptr, ptr + length);
-        auto data_it = data.begin();
+        ProtocolCraft::ReadIterator data_it = data.cbegin();
         size_t data_length = data.size();
         ReadImpl(data_it, data_length);
         ptr += length - data_length;
