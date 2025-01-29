@@ -1,7 +1,7 @@
 #pragma once
+#include <functional>
 #include <string>
 
-#include <functional>
 
 namespace ProtocolCraft
 {
@@ -23,7 +23,7 @@ void Register(const std::string& identifier, std::function<ProtocolCraft::Plugin
 // We need to add __LINE__ to make sure we don't define twice the same struct
 // if we do register multiple times the same Name with different identifiers
 // And to do so we need this weird double nested macro because of reasons
-#define CONCAT_IMPL(a, b) register_a##b
+#define CONCAT_IMPL(a, b) register_##a##b
 #define CONCAT(a, b) CONCAT_IMPL(a, b)
 
 // Register a class Name under a given identifier.

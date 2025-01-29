@@ -1,67 +1,42 @@
 #pragma once
 
 #include "PluginObjectImpl.hpp"
+#include "protocolCraft/Utilities/CustomType.hpp"
 
 #include <string>
 #include <vector>
 
 class MinecraftRegisterChannels : public PluginObjectImpl
 {
-public:
-    virtual ~MinecraftRegisterChannels()
+private:
+    std::vector<std::string> ReadChannels(ReadIterator& iter, size_t& length) const
     {
-
-    }
-
-
-    void SetChannels(const std::vector<std::string>& channels_)
-    {
-        channels = channels_;
-    }
-
-
-    const std::vector<std::string>& GetChannels() const
-    {
-        return channels;
-    }
-
-protected:
-    virtual void ReadImpl(ProtocolCraft::ReadIterator& iter, size_t& length) override
-    {
-        const std::string null_delimited_strings = ProtocolCraft::ReadRawString(iter, length, length);
-
-        channels.clear();
+        const std::string null_delimited_strings = ReadRawString(iter, length, length);
+        std::vector<std::string> output;
         const char* ptr = null_delimited_strings.data();
 
         while (ptr - null_delimited_strings.data() < null_delimited_strings.size())
         {
             // std::string(char*) truncates at the first \0
-            channels.push_back(std::string(ptr));
-            ptr += channels.back().size() + 1;
+            output.push_back(std::string(ptr));
+            ptr += output.back().size() + 1;
         }
+        return output;
     }
 
-    virtual void WriteImpl(ProtocolCraft::WriteContainer& container) const override
+    void WriteChannels(const std::vector<std::string>& channels, WriteContainer& container) const
     {
         for (int i = 0; i < channels.size(); ++i)
         {
-            ProtocolCraft::WriteRawString(channels[i], container);
+            WriteRawString(channels[i], container);
             if (i < channels.size() - 1)
             {
-                ProtocolCraft::WriteData<unsigned char>(0, container);
+                WriteData<unsigned char>(0, container);
             }
         }
     }
 
-    virtual ProtocolCraft::Json::Value SerializeImpl() const override
-    {
-        ProtocolCraft::Json::Value output;
+    SERIALIZED_FIELD(Channels, Internal::CustomType<std::vector<std::string>, &MinecraftRegisterChannels::ReadChannels, &MinecraftRegisterChannels::WriteChannels>);
 
-        output["channels"] = channels;
-
-        return output;
-    }
-
-private:
-    std::vector<std::string> channels;
+    DECLARE_READ_WRITE_SERIALIZE;
 };

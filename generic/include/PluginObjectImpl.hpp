@@ -3,6 +3,8 @@
 #include "protocolCraft/Utilities/Plugins/PluginObject.hpp"
 #include "protocolCraft/BinaryReadWrite.hpp"
 #include "protocolCraft/Utilities/Json.hpp"
+#include "protocolCraft/Utilities/AutoSerializedMacros.hpp"
+#include "protocolCraft/Utilities/AutoSerializedToJson.hpp"
 
 class PluginObjectImpl : public ProtocolCraft::PluginObject
 {
