@@ -1,5 +1,5 @@
 function(_download_protocolcraft_file rel_path)
-    file(DOWNLOAD "https://raw.githubusercontent.com/adepierre/Botcraft/master/protocolCraft/${rel_path}" "${CMAKE_CURRENT_BINARY_DIR}/protocolCraft/${rel_path}")
+    file(DOWNLOAD "https://raw.githubusercontent.com/adepierre/Botcraft/6c572071b0237c27a85211a246ce10565ef4d80f/protocolCraft/${rel_path}" "${CMAKE_CURRENT_BINARY_DIR}/protocolCraft/${rel_path}")
 endfunction()
 
 set(PROTOCOLCRAFT_PATH "${CMAKE_CURRENT_BINARY_DIR}/protocolCraft")
