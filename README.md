@@ -1,7 +1,7 @@
 ![Build status](https://github.com/adepierre/protocolcraft-plugin/actions/workflows/build.yml/badge.svg)
 [![Discord](https://badgen.net/badge/icon/discord?icon=discord&label)](https://discord.gg/wECVsTbjA9)
 
-Repository storing code to generate extension plugins for [protocolCraft](https://github.com/adepierre/Botcraft). They can be used to help dealing with custom payload packets sent by mods (see . You can check [SniffCraft](https://github.com/adepierre/SniffCraft) for an example usecase, or the [Botcraft mod support wiki page](https://github.com/adepierre/Botcraft/wiki/Mod-support) for details.
+Repository storing code to generate extension plugins for [protocolCraft](https://github.com/adepierre/Botcraft). They can be used to help dealing with custom payload packets sent by mods (see [this blog post by Dinnerbone](https://web.archive.org/web/20220711204310/https://dinnerbone.com/blog/2012/01/13/minecraft-plugin-channels-messaging/). You can check [SniffCraft](https://github.com/adepierre/SniffCraft) for an example usecase, or the [Botcraft mod support wiki page](https://github.com/adepierre/Botcraft/wiki/Mod-support) for details.
 
 As the plugins can be compiled independantly from other libraries, don't expect this repo to be updated very often (except to add new plugins). But that doesn't mean plugins won't work with more recent ProtocolCraft versions. For example, the packets in vanilla-plugin haven't changed since Minecraft 1.13, i.e. July 18, 2018.
 
